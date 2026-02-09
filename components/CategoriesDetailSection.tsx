@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import ScrollAnimation from './ScrollAnimation';
 
 type CategoryType = 'foodservice' | 'processing' | 'agriculture';
 
@@ -56,19 +57,19 @@ export default function CategoriesDetailSection() {
       <div className="relative z-10 w-full px-6 md:px-12 py-20">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {categories.map((category) => {
+            {categories.map((category, index) => {
               const isHovered = hoveredCategory === category.id;
               
               return (
-                <div
-                  key={category.id}
-                  className={`rounded-3xl p-8 md:p-10 min-h-[400px] cursor-pointer transition-all duration-300 ${
-                    isHovered
-                      ? 'bg-white flex flex-col justify-between'
-                      : 'bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center hover:scale-105'
-                  }`}
-                  onMouseEnter={() => setHoveredCategory(category.id)}
-                >
+                <ScrollAnimation key={category.id} delay={0.1 * index}>
+                  <div
+                    className={`rounded-3xl p-8 md:p-10 min-h-[400px] cursor-pointer transition-all duration-300 ${
+                      isHovered
+                        ? 'bg-white flex flex-col justify-between'
+                        : 'bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center hover:scale-105'
+                    }`}
+                    onMouseEnter={() => setHoveredCategory(category.id)}
+                  >
                   {isHovered ? (
                     // Expanded view with details
                     <>
@@ -96,7 +97,8 @@ export default function CategoriesDetailSection() {
                       {category.title}
                     </h3>
                   )}
-                </div>
+                  </div>
+                </ScrollAnimation>
               );
             })}
           </div>

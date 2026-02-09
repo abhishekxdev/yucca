@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import ScrollAnimation from './ScrollAnimation';
 
 export default function CustomSolutionsSection() {
   const marqueeText = "Not sure what's possible? Get in touch to find out.";
@@ -9,14 +10,16 @@ export default function CustomSolutionsSection() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-20 md:py-32">
         <div className="max-w-[900px] mx-auto">
           {/* Text Content */}
-          <div className="space-y-8 text-center">
-            <p className="text-sm md:text-base text-white/80 tracking-wide">
-              Custom Solutions
-            </p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight text-white">
-              Brands that thrive invest in custom-designed packaging. Let us help bring your vision to life.
-            </h2>
-          </div>
+          <ScrollAnimation>
+            <div className="space-y-8 text-center">
+              <p className="text-sm md:text-base text-white/80 tracking-wide">
+                Custom Solutions
+              </p>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight text-white">
+                Brands that thrive invest in custom-designed packaging. Let us help bring your vision to life.
+              </h2>
+            </div>
+          </ScrollAnimation>
         </div>
       </div>
 

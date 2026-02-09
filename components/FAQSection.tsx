@@ -7,6 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from './ui/accordion';
+import ScrollAnimation from './ScrollAnimation';
 
 const faqs = [
   {
@@ -42,32 +43,36 @@ export default function FAQSection() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left - Heading and Button */}
-          <div className="space-y-8">
-            <h2 className="text-4xl md:text-5xl font-light text-foreground">
-              Frequently asked questions
-            </h2>
-            <Button 
-              className="bg-foreground text-background hover:bg-foreground/90 px-6 py-5 rounded-lg"
-            >
-              View all
-            </Button>
-          </div>
+          <ScrollAnimation>
+            <div className="space-y-8">
+              <h2 className="text-4xl md:text-5xl font-light text-foreground">
+                Frequently asked questions
+              </h2>
+              <Button 
+                className="bg-foreground text-background hover:bg-foreground/90 px-6 py-5 rounded-lg"
+              >
+                View all
+              </Button>
+            </div>
+          </ScrollAnimation>
 
           {/* Right - FAQ Accordion */}
-          <div>
-            <Accordion type="single" collapsible className="w-full">
-              {faqs.map((faq) => (
-                <AccordionItem key={faq.id} value={faq.id} className="border-t border-foreground/20">
-                  <AccordionTrigger className="text-left text-lg md:text-xl font-light text-foreground hover:no-underline py-6">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-base leading-relaxed text-foreground pb-6">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+          <ScrollAnimation delay={0.2}>
+            <div>
+              <Accordion type="single" collapsible className="w-full">
+                {faqs.map((faq) => (
+                  <AccordionItem key={faq.id} value={faq.id} className="border-t border-foreground/20">
+                    <AccordionTrigger className="text-left text-lg md:text-xl font-light text-foreground hover:no-underline py-6">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-base leading-relaxed text-foreground pb-6">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </ScrollAnimation>
         </div>
       </div>
     </section>

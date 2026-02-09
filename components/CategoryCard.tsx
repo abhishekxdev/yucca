@@ -7,7 +7,7 @@ interface CategoryCardProps {
 
 export default function CategoryCard({ title, description }: CategoryCardProps) {
   return (
-    <button className="group relative bg-white/20 backdrop-blur-md rounded-3xl p-8 hover:bg-white transition-all duration-300 border border-white/40 hover:border-transparent aspect-square overflow-hidden">
+    <button className="group relative bg-white/20 backdrop-blur-md rounded-3xl p-8 hover:bg-white transition-all duration-300 border border-white/40 hover:border-transparent aspect-square overflow-hidden w-full h-full">
       {/* Default state - Title centered */}
       <div className="absolute inset-0 flex items-center justify-center p-8 group-hover:opacity-0 transition-opacity duration-300">
         <h3 className="text-xl font-normal text-foreground text-center">
