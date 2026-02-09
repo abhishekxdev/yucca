@@ -14,7 +14,7 @@ export default function AboutSection() {
           {/* Right - Description and CTA */}
           <div className="space-y-8">
             <p className="text-base md:text-lg leading-relaxed text-foreground">
-              Remarkable packaging is our promise to you. What doesn't meet Yucca standards is refined until it does.
+              Remarkable packaging is our promise to you. What doesn’t meet Yucca standards is refined until it does.
             </p>
             <Button 
               className="bg-foreground text-background hover:bg-foreground/90 px-6 py-5 text-sm rounded-lg"
